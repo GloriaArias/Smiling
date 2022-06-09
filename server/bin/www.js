@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('smiling:server');
+var debug = require('debug')('projnotes-2022a:server');
 var http = require('http');
 
 /**
@@ -13,21 +13,23 @@ var http = require('http');
  */
 
 var port = normalizePort(process.env.PORT || '3000');
+// app es una instnacia de ExpressJs[ ] [ NODE ]
 app.set('port', port);
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+var server = http.createServer(app); // (req, res, next, err)=> {}
 
 /**
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+server.listen(port); // Pone al server a escuchar
+// Se registran eventos
+server.on('error', onError); // En caso de error
+server.on('listening', onListening); // Cuando esta escuchando
 
 /**
  * Normalize a port into a number, string, or false.
@@ -87,4 +89,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log(`✍ Servidor escuchando 🤖🦻...en ${app.get('port')}`);
 }
