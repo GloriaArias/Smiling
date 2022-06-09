@@ -4,8 +4,9 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('projnotes-2022a:server');
+// var app = require('../app');
+import app from '../app';
+var debug = require('debug')('smiling:server');
 var http = require('http');
 
 /**
