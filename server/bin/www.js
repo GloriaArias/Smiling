@@ -4,16 +4,19 @@
  * Module dependencies.
  */
 
-// var app = require('../app');
 import app from '../app';
-var debug = require('debug')('smiling:server');
-var http = require('http');
+import Debug from "debug";
+import http from "http";
+
+// Creando instancia del debugger
+const debug = Debug("smiling:server");
+
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 // app es una instnacia de ExpressJs[ ] [ NODE ]
 app.set('port', port);
 
@@ -37,7 +40,7 @@ server.on('listening', onListening); // Cuando esta escuchando
  */
 
 function normalizePort(val) {
-  var port = parseInt(val, 10);
+  const port = parseInt(val, 10);
 
   if (isNaN(port)) {
     // named pipe
@@ -72,7 +75,7 @@ function onError(error) {
       process.exit(1);
       break;
     case 'EADDRINUSE':
-      console.error(bind + ' is already in use');
+      console.error(`${bind} is already in use`);
       process.exit(1);
       break;
     default:
@@ -85,10 +88,8 @@ function onError(error) {
  */
 
 function onListening() {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
-    ? 'pipe ' + addr
-    : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  const addr = server.address();
+  const bind = typeof addr === "string" ? `pipe ${addr}` : `port ${addr.port}`;
+  debug(`Listening on ${bind}`);
   console.log(`✍ Servidor escuchando 🤖🦻...en ${app.get('port')}`);
 }
