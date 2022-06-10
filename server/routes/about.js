@@ -1,19 +1,19 @@
 // Importamos Express
-var express = require("express");
+var express = require('express');
 // Importamos el enrutador de Express
 var router = express.Router();
 
 /* GET home page. */
-router.get("/", function (req, res, next) {
+router.get('/', (req, res) => {
   //render manda a renderizar (generar y entregar)
   res.render(
-    "about",
+    'about',
     // Este es el View_Model
 
     {
-      name: "Gloria Arias Utrera",
-      email: "ariasutreragloria@gmail.com",
-      url: "www.itgam.com/gloria.arias",
+      name: 'Gloria Arias Utrera',
+      email: 'ariasutreragloria@gmail.com',
+      url: 'www.itgam.com/gloria.arias',
     }
   );
 });
