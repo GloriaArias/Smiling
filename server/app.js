@@ -8,7 +8,7 @@ import path from 'path';
 // Ayuda al manejo de cookies
 import cookieParser from 'cookie-parser';
 // Maneja el log de peticiones http
-import logger from 'morgan';
+import morgan from 'morgan';
 
 // Las rutas
 import webpack from 'webpack';
@@ -17,6 +17,9 @@ import WebpackHotMiddleware from 'webpack-hot-middleware';
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 import aboutRouter from './routes/about';
+
+// Importando nuestro logger
+import winston from './config/winston';
 
 // Importando modulos de webpack
 // Nucleo de webpack
@@ -74,7 +77,7 @@ app.set('view engine', 'hbs');
 
 // Todos los middlewares globales
 // van primero que cualquier otro middleware de la app
-app.use(logger('dev'));
+app.use(morgan('dev', { stream: winston.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -92,7 +95,7 @@ app.use((req, res, next) => {
 });
 
 // error handler
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
