@@ -13,32 +13,6 @@ import winston from '../config/winston';
 // Importando el objeto de las llaves de configuracion
 import configKeys from '../config/configKeys';
 
-// Creando instancia del debugger
-const debug = Debug('smiling:server');
-
-/**
- * Get port from environment and store in Express.
- */
-
-const port = normalizePort(process.env.PORT || '5000');
-// app es una instnacia de ExpressJs[ ] [ NODE ]
-app.set('port', port);
-
-/**
- * Create HTTP server.
- */
-
-const server = http.createServer(app); // (req, res, next, err)=> {}
-
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port); // Pone al server a escuchar
-// Se registran eventos
-server.on('error', onError); // En caso de error
-server.on('listening', onListening); // Cuando esta escuchando
-
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -46,7 +20,7 @@ server.on('listening', onListening); // Cuando esta escuchando
 function normalizePort(val) {
   const port = parseInt(val, 10);
 
-  if (isNaN(port)) {
+  if (Number.isNaN(port)) {
     // named pipe
     return val;
   }
@@ -58,6 +32,23 @@ function normalizePort(val) {
 
   return false;
 }
+
+// Creando instancia del debugger
+const debug = Debug('smiling:server');
+
+/**
+ * Get port from environment and store in Express.
+ */
+
+const port = normalizePort(configKeys.port || '5000');
+// app es una instnacia de ExpressJs[ ] [ NODE ]
+app.set('port', port);
+
+/**
+ * Create HTTP server.
+ */
+
+const server = http.createServer(app); // (req, res, next, err)=> {}
 
 /**
  * Event listener for HTTP server "error" event.
@@ -95,3 +86,12 @@ function onListening() {
   debug(`Listening on ${bind}`);
   winston.info(`Servidor escuchando 🤖🦻...en ${app.get('port')}`);
 }
+
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port); // Pone al server a escuchar
+// Se registran eventos
+server.on('error', onError); // En caso de error
+server.on('listening', onListening); // Cuando esta escuchando
