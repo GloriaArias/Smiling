@@ -1,6 +1,5 @@
 // Incorporando estilos
 // a mi bundle
-import './styles/style.css';
 import './styles/mystyle.css';
 
 console.log('🎁 Front-End Working!!!');
