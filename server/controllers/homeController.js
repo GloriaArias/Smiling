@@ -30,6 +30,9 @@ const about = (req, res) => {
     name: 'Dra. Gloria Arias',
     email: 'gloriaAriasU.dentalSmiling.com.mx',
     url: 'https://github.com/GloriaArias/Smiling/',
+    description:
+      'Smiling es una clínica que se preocupa por tu salud bucal, por ello hemos creado un espacio en el cuál podrás consultar servicios, revisar costos y agendar una cita desde tu hogar',
+    version: '0.0.alpha',
   });
 };
 
