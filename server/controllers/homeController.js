@@ -21,7 +21,7 @@ const index = (req, res) => {
     author: 'Gloria Arias',
     emojie,
   };
-  res.render('index', viewModel);
+  res.render('home/indexView', viewModel);
 };
 
 // URL: Get /about
