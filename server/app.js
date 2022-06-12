@@ -29,6 +29,10 @@ import winston from './config/winston';
 // Permite la actualización dinamica de la página
 // Configuración
 import webpackConfig from '../webpack.dev.config';
+// Importando las variables de configuracion
+import configKeys from './config/configKeys';
+// Importando clase conectora a la base de datos
+import MongooseODM from './config/odm';
 
 // Aqui se crea la instancia de express
 // (req, res, next) => {... }
