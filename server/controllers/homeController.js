@@ -24,7 +24,17 @@ const index = (req, res) => {
   res.render('index', viewModel);
 };
 
+// URL: Get /about
+const about = (req, res) => {
+  res.render('home/aboutView', {
+    name: 'Dra. Gloria Arias',
+    email: 'gloriaAriasU.dentalSmiling.com.mx',
+    url: 'https://github.com/GloriaArias/Smiling/',
+  });
+};
+
 export default {
   // Action Methods
   index,
+  about,
 };
