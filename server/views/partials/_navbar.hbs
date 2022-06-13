@@ -1,23 +1,9 @@
  <!-- Se crea una estructura Dropdown -->
 <ul id="dropdownMenu" class="dropdown-content">
-  <li>
-    <a href="#">
-      <i class="large material-icons" style="margin: 2px;">
-        list
-      </i>
-      Citas Pendientes
-    </a>
-  </li>
-  <li class="divider"></li>
-  <li>
-    <a href="#">
-      <i class="large material-icons" style="margin: 2px;">
-        add_box
-      </i>
-      Agendar Cita
-    </a>
-  </li>
-</ul>
+ <!-- Operaciones -->
+ {{_operations}} 
+ <!-- fin Operaciones -->
+ </ul>
  <nav>
       <div class="container">
         <div class="nav-wrapper">
@@ -25,14 +11,7 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/">Inicio</a></li>
             <li><a href="/about">Acerca de...</a></li>
-          </ul>
-          <!-- Visualizción de navegacion par amoviles -->
-      <a href="#" data-target="slide-out" class="sidenav-trigger">
-        <i class="material-icons">menu</i>
-      </a>
-      <ul id="slide-out" class="sidenav">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/about">Acerca De...</a></li>
+          
         <li>
           <a class="dropdown-trigger" href="#" data-target="dropdownMenu">
             Acciones
@@ -55,23 +34,7 @@
           </a>
         </li>
         <!-- Operaciones -->
-        <li>
-          <a href="#">
-            <i class="large material-icons" style="margin: 2px;">
-              list
-            </i>
-            Citas Pendientes
-          </a>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="#">
-            <i class="large material-icons" style="margin: 2px;">
-              add_box
-            </i>
-            Agendar Cita
-          </a>
-        </li>
+        {{>_operations}}
         <!-- Divisor -->
         <li class="divider"></li>
         <li>
