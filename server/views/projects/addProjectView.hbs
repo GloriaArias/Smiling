@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="col s12 m10 offset-m1 l8 offset-l2">
+    <div class="card">
+      <div class="card-image">
+        <img src="/images/smiling.jpg" alt="blue print image" />
+        <span class="card-title">
+          Agendar Cita
+        </span>
+      </div>
+      <form autocomplete="off" action="/projects/add" method="POST">
+        <div class="card-content">
+          <div class="input-field">
+            <label for="project-name">
+              Nombre
+            </label>
+            <input
+              placeholder="Ingrese el nombre del paciente"
+              type="text"
+              id="project-name"
+              name="name"
+              class="validate"
+            />
+          </div>
+          <div class="input-field">
+            <label for="project-service">
+              Servicio
+            </label>
+            <textarea
+              name="service"
+              id="project-service"
+              class="materialize-textarea"
+            ></textarea>
+          </div>
+
+        <div class="input-field">
+            <label for="project-service">
+              Fecha
+            </label>
+            <input
+              placeholder=""
+              type="date"
+              id="project-date"
+              name="date"
+              class="datepicker"
+            />
+          </div>
+        </div>
+
+
+        <div class="card-action">
+          <button
+            type="submit"
+            class="pink lighten-2 waves-effect waves-light btn"
+          >
+            <i class="material-icons left">
+              save
+            </i>
+            Agendar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

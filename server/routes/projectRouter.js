@@ -8,12 +8,12 @@ import projectController from '../controllers/projectController';
 const router = new Router();
 
 /* ------ GET ------ */
-// Citas Pendientes
+// Listar proyector
 // GET /projects | GET /projects/index
 router.get(['/', '/index'], projectController.index);
 
-// Agendando una cita
-// GET /projects/add
+// Envia el formulario para registrar una idea de proyecto
+// get /projects/add
 router.get('/add', projectController.add);
 
 // Exportando el enrutador Projects
