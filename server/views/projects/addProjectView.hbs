@@ -19,7 +19,16 @@
               id="project-name"
               name="name"
               class="validate"
+              value="{{project.name}}"
+              required
             />
+            <span 
+            class="helper-text" 
+            data-error="Debe ingresar nombre del paciente"
+            data-success="Correcto"></span>
+            {{#if errorModel.nameError}}
+            <span style="color:pink">Error: {{errorModel.nameError}}</span>
+            {{/if}}
           </div>
           <div class="input-field">
             <label for="project-service">
@@ -29,7 +38,18 @@
               name="service"
               id="project-service"
               class="materialize-textarea"
+              required
             ></textarea>
+            {{project.service}}
+            <span
+            class="helper-text"
+            data-error="Debe ingresar el servicio requerido"
+            data-success="Correcto"></span>
+            {{#if errorModel.descriptionError}}
+            <span style="color:pink"> 
+              Error: {{errorModel.descriptionError}}
+            </span>
+            {{/if}}
           </div>
 
         <div class="input-field">
@@ -41,8 +61,17 @@
               type="date"
               id="project-date"
               name="date"
-              class="datepicker"
+              class="validate"
+              value="{{project.date}}"
+              required
             />
+            <span 
+            class="helper-text" 
+            data-error="Debe seleccionar fecha para su servicio"
+            data-success="Correcto"></span>
+            {{#if errorModel.nameError}}
+            <span style="color:pink">Error: {{errorModel.nameError}}</span>
+            {{/if}}
           </div>
         </div>
 
