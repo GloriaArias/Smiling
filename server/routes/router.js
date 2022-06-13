@@ -1,7 +1,7 @@
 // Importando el enrutador de Home
 import homeRouter from './homeRouter';
 // Importando el enrutador de Project
-import projectRouter from './projectRouter';
+import projectRouter from './citasRouter';
 
 // Funcion que agrega todos los enrutadores
 // a la aplicación de express

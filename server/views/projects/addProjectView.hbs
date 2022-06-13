@@ -1,93 +1,92 @@
 <div class="row">
-  <div class="col s12 m10 offset-m1 l8 offset-l2">
-    <div class="card">
-      <div class="card-image">
-        <img src="/images/smiling.jpg" alt="blue print image" />
-        <span class="card-title">
-          Agendar Cita
-        </span>
-      </div>
-      <form autocomplete="off" action="/projects/add" method="POST">
-        <div class="card-content">
-          <div class="input-field">
-            <label for="project-name">
-              Nombre
-            </label>
-            <input
-              placeholder="Ingrese el nombre del paciente"
-              type="text"
-              id="project-name"
-              name="name"
-              class="validate"
-              value="{{project.name}}"
-              required
-            />
-            <span 
-            class="helper-text" 
-            data-error="Debe ingresar nombre del paciente"
-            data-success="Correcto"></span>
-            {{#if errorModel.nameError}}
-            <span style="color:pink">Error: {{errorModel.nameError}}</span>
-            {{/if}}
-          </div>
-          <div class="input-field">
-            <label for="project-service">
-              Servicio
-            </label>
-            <textarea
-              name="service"
-              id="project-service"
-              class="materialize-textarea"
-              required
-            ></textarea>
-            {{project.service}}
-            <span
-            class="helper-text"
-            data-error="Debe ingresar el servicio requerido"
-            data-success="Correcto"></span>
-            {{#if errorModel.descriptionError}}
-            <span style="color:pink"> 
-              Error: {{errorModel.descriptionError}}
-            </span>
-            {{/if}}
-          </div>
-
-        <div class="input-field">
-            <label for="project-service">
+    <div class="col s12 m10 offset-m1 l8 offset-l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="/images/smiling.jpg" alt="Project image">
+                <span class="card-title">
+                    Agendar Cita
+                </span>
+            </div>
+            <form autocomplete="off" action="/projects/add" method="post">
+            <div class="card-content">
+                <div class="input-field">
+                    <label for="project-name">
+                        Nombre del paciente
+                    </label>
+                    <input
+                    placeholder="Ingrese el nombre del paciente"
+                     type="text" 
+                     id="project-name" 
+                     name="name" 
+                     class="validate"
+                     value="{{project.name}}"
+                     required
+                     />
+                     <div 
+                     class="helper-text"
+                     data-error="Debe ingresar nombre del paciente"
+                     data-success="Correcto"></div>
+                     
+                      {{#if errorModel.nameError}}
+                      <span style="color: red;">
+                          Error: {{errorModel.nameError}}
+                          </span>
+                      {{/if}}
+                </div>
+                <div class="input-field">
+                    <label for="project-service">
+                        Service
+                    </label>
+                    <textarea
+                    name="service"
+                    id="project-service"
+                    class="materialize-textarea"
+                    required
+                    >{{project.service}}</textarea>
+                    <span
+                     class="helper-text"
+                     data-error="Debe ingresar el servicio deseado"
+                     data-success="Correcto"></span>
+                    {{#if errorModel.serviceError}}
+                    <span style="color: red;">
+                        Error: {{errorModel.serviceError}}
+                    </span>
+                    {{/if}}
+                </div>
+                <div class="input-field">
+            <label for="project-fecha">
               Fecha
             </label>
             <input
               placeholder=""
               type="date"
-              id="project-date"
-              name="date"
+              id="project-fecha"
+              name="fecha"
               class="validate"
-              value="{{project.date}}"
+              value="{{project.fecha}}"
               required
             />
             <span 
             class="helper-text" 
             data-error="Debe seleccionar fecha para su servicio"
             data-success="Correcto"></span>
-            {{#if errorModel.nameError}}
-            <span style="color:pink">Error: {{errorModel.nameError}}</span>
+            {{#if errorModel.fechaError}}
+            <span style="color:pink">Error: {{errorModel.fechaError}}</span>
             {{/if}}
           </div>
         </div>
 
 
-        <div class="card-action">
-          <button
-            type="submit"
-            class="pink lighten-2 waves-effect waves-light btn"
-          >
-            <i class="material-icons left">
-              save
-            </i>
-            Agendar
-          </button>
+
+            </div>
+            <div class="card-action">
+                <button 
+                type="submit"
+                class="pink darken-2 waves-effect waves-light btn">
+                <i class="material-icons left">note_add</i>Agendar
+                </button>
+            </div>
+            </form>
         </div>
-      </form>
     </div>
-  </div>
 </div>

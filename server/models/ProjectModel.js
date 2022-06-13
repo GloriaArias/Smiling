@@ -11,7 +11,7 @@ const ProjectSchema = new Schema({
     type: String,
     required: true,
   },
-  description: {
+  service: {
     type: String,
     required: true,
   },

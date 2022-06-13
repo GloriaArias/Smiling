@@ -14,7 +14,7 @@ import winston from '../config/winston';
 import configKeys from '../config/configKeys';
 
 /**
- * Normalize a port into a number, string, or false.
+ * Normalize a portP into a number, string, or false.
  */
 
 function normalizePort(val) {
