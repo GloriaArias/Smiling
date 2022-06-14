@@ -21,6 +21,9 @@ router.get(['/', '/index'], citasController.index);
 // get /projects/add
 router.get('/add', citasController.add);
 
+// Envia una lista de los servicios ofertados por la clínica
+router.get('/service', citasController.service);
+
 /* ------ POST ------ */
 // Procesa el formulario que Agrega ideas de proyectos
 // POST /projects/add

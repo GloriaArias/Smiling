@@ -27,6 +27,10 @@ const add = (req, res) => {
   res.render('projects/addCitasView', {});
 };
 
+const service = (req, res) => {
+  res.render('projects/serviceView', {});
+};
+
 // Procesa el formulario que Agenda las Citas
 // POST /projects/add
 const addPost = async (req, res) => {
@@ -84,4 +88,5 @@ export default {
   index,
   add,
   addPost,
+  service,
 };
