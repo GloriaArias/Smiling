@@ -15,6 +15,12 @@ const CitasSchema = new Schema({
     type: String,
     required: true,
   },
+  dateofservice: {
+    type: Date,
+    default: Date.now,
+    required: true,
+  },
+
   date: {
     type: Date,
     default: Date.now,

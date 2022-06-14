@@ -53,6 +53,30 @@
                     </span>
                     {{/if}}
                 </div>
+
+                 <label for="project-dateofservice">
+                        Fecha de servicio
+                    </label>
+                    <input
+                    placeholder="Ingrese fecha de servicio"
+                     type="date" 
+                     id="project-dateofservice" 
+                     name="dateofservice" 
+                     class="validate"
+                     value="{{project.dateofservice}}"
+                     required
+                     />
+                     <div 
+                     class="helper-text"
+                     data-error="Debe ingresar una fecha"
+                     data-success="Correcto"></div>
+                     
+                      {{#if errorModel.dateofserviceError}}
+                      <span style="color: pink;">
+                          Error: {{errorModel.dateofserviceError}}
+                          </span>
+                      {{/if}}
+                </div>
             </div>
             <div class="card-action">
                 <button 
