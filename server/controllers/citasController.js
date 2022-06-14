@@ -1,7 +1,7 @@
 import log from '../config/winston';
 
 // Importando el modelo Project
-import ProjectModel from '../models/ProjectModel';
+import CitasModel from '../models/CitasModel';
 
 /* Action Methods */
 // Lista los proyectos
@@ -11,12 +11,12 @@ const index = async (req, res) => {
   // que me dé todos los proyectos que tiene
   // db.projects.find*()
   try {
-    log.info('Listando proyectos ... ⌛');
-    const projectsDocs = await ProjectModel.find();
-    log.info('Proyectos listados con éxito ... 🎉');
-    res.json(projectsDocs);
+    log.info('Listando citas ... ⌛');
+    const citasDocs = await CitasModel.find();
+    log.info('Citas Listadas con éxito ... 🎉');
+    res.json(citasDocs);
   } catch (error) {
-    log.error(`💥 Error al listar proyectos: ${error.message}`);
+    log.error(`💥 Error al listar las citas: ${error.message}`);
     res.status(500).json(error);
   }
 };
@@ -24,7 +24,7 @@ const index = async (req, res) => {
 // Agrega ideas de proyectos
 // GET /projects/add
 const add = (req, res) => {
-  res.render('projects/addProjectView', {});
+  res.render('projects/addCitasView', {});
 };
 
 // Procesa el formulario que Agrega ideas de Proyectos
@@ -54,27 +54,27 @@ const addPost = async (req, res) => {
     }, {});
 
     // Lavalidacion fallo
-    return res.render('projects/addProjectView', { project, errorModel });
+    return res.render('projects/addCitasView', { project, errorModel });
   }
-  log.info('Se retorna objeto Project valido');
+  log.info('Se retorna objeto Citas valido');
   // Crear un documento con los datos provistos
   // por el formulario y guardar dicho documento
   // en projectModel
-  log.info('Se salva objeto Project');
-  const projectModel = new ProjectModel(validData);
+  log.info('Se salva objeto Citas');
+  const citasModel = new CitasModel(validData);
   // Siempre que se ejecuta una operacion
   // que depende de un tercero, es una buena practica
   // envolver esa operacion en un bloque try
   try {
-    log.info('Salvando el Proyecto... ⌛');
+    log.info('Salvando las Citas... ⌛');
     // Se salva el documento project
-    project = await projectModel.save();
-    log.info('🎉 Proyecto salvado con éxito 🎉');
+    project = await citasModel.save();
+    log.info('🎉 Citas salvadas con éxito 🎉');
     // Redireccionando al recurso que lista los proyectos
     // GET /projects
     return res.redirect('/projects');
   } catch (error) {
-    log.error(`Ha fallado el intento de salvar un proyecto: ${error.message}`);
+    log.error(`Ha fallado el intento de salvar una cita: ${error.message}`);
     return res.status(500).json({ error });
   }
 };

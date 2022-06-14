@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 // 3 Creamos el Schema
-const ProjectSchema = new Schema({
+const CitasSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -23,4 +23,4 @@ const ProjectSchema = new Schema({
 
 // Generar el Modelo a partir de un Schema
 // Compilar el modelo
-export default mongoose.model('project', ProjectSchema);
+export default mongoose.model('project', CitasSchema);
