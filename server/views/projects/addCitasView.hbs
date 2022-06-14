@@ -28,7 +28,7 @@
                      data-success="Correcto"></div>
                      
                       {{#if errorModel.nameError}}
-                      <span style="color: red;">
+                      <span style="color: pink;">
                           Error: {{errorModel.nameError}}
                           </span>
                       {{/if}}
@@ -48,41 +48,16 @@
                      data-error="Debe ingresar el servicio deseado"
                      data-success="Correcto"></span>
                     {{#if errorModel.serviceError}}
-                    <span style="color: red;">
+                    <span style="color: purple;">
                         Error: {{errorModel.serviceError}}
                     </span>
                     {{/if}}
                 </div>
-                <div class="input-field">
-            <label for="project-fecha">
-              Fecha
-            </label>
-            <input
-              placeholder=""
-              type="date"
-              id="project-fecha"
-              name="fecha"
-              class="validate"
-              value="{{project.fecha}}"
-              required
-            />
-            <span 
-            class="helper-text" 
-            data-error="Debe seleccionar fecha para su servicio"
-            data-success="Correcto"></span>
-            {{#if errorModel.fechaError}}
-            <span style="color:pink">Error: {{errorModel.fechaError}}</span>
-            {{/if}}
-          </div>
-        </div>
-
-
-
             </div>
             <div class="card-action">
                 <button 
                 type="submit"
-                class="pink darken-2 waves-effect waves-light btn">
+                class="pink lighten-3 waves-effect waves-light btn">
                 <i class="material-icons left">note_add</i>Agendar
                 </button>
             </div>

@@ -28,7 +28,7 @@ router.post(
   '/add',
   Validate({
     shape: citasValidator.citasSchema,
-    getObject: citasValidator.getProject,
+    getObject: citasValidator.getCitas,
   }),
   citasController.addPost
 );

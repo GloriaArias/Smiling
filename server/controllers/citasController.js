@@ -21,13 +21,13 @@ const index = async (req, res) => {
   }
 };
 
-// Agrega ideas de proyectos
+// Agenda citas
 // GET /projects/add
 const add = (req, res) => {
   res.render('projects/addCitasView', {});
 };
 
-// Procesa el formulario que Agrega ideas de Proyectos
+// Procesa el formulario que Agenda las Citas
 // POST /projects/add
 const addPost = async (req, res) => {
   // Desestructurando la información del formulario o de un posible error
@@ -59,7 +59,7 @@ const addPost = async (req, res) => {
   log.info('Se retorna objeto Citas valido');
   // Crear un documento con los datos provistos
   // por el formulario y guardar dicho documento
-  // en projectModel
+  // en citasModel
   log.info('Se salva objeto Citas');
   const citasModel = new CitasModel(validData);
   // Siempre que se ejecuta una operacion
