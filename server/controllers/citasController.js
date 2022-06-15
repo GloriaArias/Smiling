@@ -38,6 +38,14 @@ const list = (req, res) => {
   res.render('projects/listView', {});
 };
 
+const login = (req, res) => {
+  res.render('projects/loginView', {});
+};
+
+const confirm = (req, res) => {
+  res.render('projects/confirmCitasView', {});
+};
+
 // Procesa el formulario que Agenda las Citas
 // POST /projects/add
 const addPost = async (req, res) => {
@@ -97,4 +105,6 @@ export default {
   addPost,
   service,
   list,
+  login,
+  confirm,
 };

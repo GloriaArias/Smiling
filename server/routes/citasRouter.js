@@ -27,6 +27,12 @@ router.get('/service', citasController.service);
 // Envia una lista de las consultas
 router.get('/list', citasController.list);
 
+// Nos manda a la vista del Loggin
+router.get('/login', citasController.login);
+
+// Nos manda a la vista del Loggin
+router.get('/confirm', citasController.confirm);
+
 /* ------ POST ------ */
 // Procesa el formulario que Agrega ideas de proyectos
 // POST /projects/add

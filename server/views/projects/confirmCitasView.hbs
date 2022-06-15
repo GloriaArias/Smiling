@@ -1,12 +1,13 @@
+<body style="background-color: #f3e5f5;">
 <div class="row">
     <div class="col s12 m10 offset-m1 l8 offset-l2">
         <div class="card">
-            <div class="card-image">
-                <img src="/images/smiling.jpg" alt="Project image">
-                <span class="card-title">
-                    Agendar Cita
-                </span>
-            </div>
+            {{!-- <div class="card-image"> --}}
+                {{!-- <img src="/images/cons.jpg" alt="Project image"> --}}
+                {{!-- <span class="card-title">
+                    Confirmar Cita
+                </span> --}}
+            {{!-- </div> --}}
             <form autocomplete="off" action="/projects/add" method="post">
             <div class="card-content">
                 <div class="input-field">
@@ -77,13 +78,64 @@
                           Error: {{errorModel.dateofserviceError}}
                           </span>
                       {{/if}}
+                <br>
+
+                <label for="project-horaCita">
+                        Hora de la Cita
+                    </label>
+                    <input
+                    placeholder="Ingrese hora en que se realiza servicio"
+                     type="text"
+                     min="15/06/2022"
+                     id="project-horaCita" 
+                     name="horaCita" 
+                     class="validate"
+                     value="{{project.horaCita}}"
+                     required
+                     />
+                     <div 
+                     class="helper-text"
+                     data-error="Debe ingresar una hora"
+                     data-success="Correcto"></div>
+                     
+                      {{#if errorModel.horaCitaError}}
+                      <span style="color: pink;">
+                          Error: {{errorModel.horaCitaError}}
+                          </span>
+                      {{/if}}
+                
+<br>
+                <div class="input-field">
+                    <label for="project-costo">
+                        Costo del Servicio
+                    </label>
+                    <input
+                    placeholder="Ingrese el costo del servicio"
+                     type="number" 
+                     id="project-costo" 
+                     name="costo" 
+                     class="validate"
+                     value="{{project.costo}}"
+                     required
+                     />
+                     <div 
+                     class="helper-text"
+                     data-error="Debe ingresar el costo"
+                     data-success="Correcto"></div>
+                     
+                      {{#if errorModel.costoError}}
+                      <span style="color: pink;">
+                          Error: {{errorModel.costoError}}
+                          </span>
+                      {{/if}}
                 </div>
+
             </div>
             <div class="card-action">
                 <button 
                 type="submit"
                 class="pink lighten-3 waves-effect waves-light btn">
-                <i class="material-icons left">note_add</i>Agendar
+                <i class="material-icons left">note_add</i>Confirmar
                 </button>
             </div>
             </form>
