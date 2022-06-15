@@ -8,7 +8,7 @@ const citasSchema = Yup.object().shape({
     .max(100, 'El nombre del servicio está limitado a 100 carácteres')
     .required('Debe ingresar el servicio requerido'),
   dateofservice: Yup.date()
-    .min(14062022, 'Debe ingresar una fecha valida')
+    .min(Yup.ref('startAt'), 'La fecha no debe ser menos a la fecha de entrada')
     .required('Se requiere la fecha de su servicio'),
 });
 

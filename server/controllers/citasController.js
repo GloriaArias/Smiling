@@ -4,17 +4,20 @@ import log from '../config/winston';
 import CitasModel from '../models/CitasModel';
 
 /* Action Methods */
-// Lista los proyectos
+// Lista las citas
 // GET /projects | GET /projects/index
 const index = async (req, res) => {
   // 1.Pedirle a la base de datos
-  // que me dé todos los proyectos que tiene
+  // que me dé todas las citas que tiene
   // db.projects.find*()
   try {
     log.info('Listando citas ... ⌛');
-    const citasDocs = await CitasModel.find();
+    // Para obtener las vistas en hbs vamos a renderizar las mismas, cambiamos el res.json
+    // por render y lo siguiente será convertir nuestra constante en un arreglo {citasDocs}
+    // En este caso estamos usando un método de fábrica de mongoose para que nos ayude a obtener la lista
+    const citasDocs = await CitasModel.find().lean().exec();
     log.info('Citas Listadas con éxito ... 🎉');
-    res.json(citasDocs);
+    res.render('projects/listView', { citasDocs });
   } catch (error) {
     log.error(`💥 Error al listar las citas: ${error.message}`);
     res.status(500).json(error);
@@ -24,7 +27,7 @@ const index = async (req, res) => {
 // Agenda citas
 // GET /projects/add
 const add = (req, res) => {
-  res.render('projects/addCitasView', {});
+  res.render('projects/addCitasView', { add });
 };
 
 const service = (req, res) => {
