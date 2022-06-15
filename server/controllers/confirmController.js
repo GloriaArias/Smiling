@@ -1,8 +1,5 @@
 import log from '../config/winston';
-
-// Importando el modelo Project
-import CitasModel from '../models/CitasModel';
-
+import ConfirmModel from '../models/ConfirmModel';
 /* Action Methods */
 // Lista las citas
 // GET /projects | GET /projects/index
@@ -15,7 +12,7 @@ const index = async (req, res) => {
     // Para obtener las vistas en hbs vamos a renderizar las mismas, cambiamos el res.json
     // por render y lo siguiente será convertir nuestra constante en un arreglo {citasDocs}
     // En este caso estamos usando un método de fábrica de mongoose para que nos ayude a obtener la lista
-    const citasDocs = await CitasModel.find().lean().exec();
+    const citasDocs = await ConfirmModel.find().lean().exec();
     log.info('Citas Listadas con éxito ... 🎉');
     res.render('projects/listView', { citasDocs });
   } catch (error) {
@@ -26,23 +23,8 @@ const index = async (req, res) => {
 
 // Agenda citas
 // GET /projects/add
-const add = (req, res) => {
-  res.render('projects/addCitasView', { add });
-};
 
-const service = (req, res) => {
-  res.render('projects/serviceView', {});
-};
-
-const list = (req, res) => {
-  res.render('projects/listView', {});
-};
-
-const login = (req, res) => {
-  res.render('projects/loginView', {});
-};
-
-const conf = (req, res) => {
+const confirm = (req, res) => {
   res.render('projects/confirmCitasView', {});
 };
 
@@ -73,21 +55,21 @@ const addPost = async (req, res) => {
     }, {});
 
     // Lavalidacion fallo
-    return res.render('projects/addCitasView', { project, errorModel });
+    return res.render('projects/confirmCitasView', { project, errorModel });
   }
   log.info('Se retorna objeto Citas valido');
   // Crear un documento con los datos provistos
   // por el formulario y guardar dicho documento
   // en citasModel
   log.info('Se salva objeto Citas');
-  const citasModel = new CitasModel(validData);
+  const confirmModel = new ConfirmModel(validData);
   // Siempre que se ejecuta una operacion
   // que depende de un tercero, es una buena practica
   // envolver esa operacion en un bloque try
   try {
     log.info('Salvando las Citas... ⌛');
     // Se salva el documento project
-    project = await citasModel.save();
+    project = await confirmModel.save();
     log.info('🎉 Citas salvadas con éxito 🎉');
     // Redireccionando al recurso que lista los proyectos
     // GET /projects
@@ -101,10 +83,6 @@ const addPost = async (req, res) => {
 // Exportando el controlador
 export default {
   index,
-  add,
   addPost,
-  service,
-  list,
-  login,
-  conf,
+  confirm,
 };

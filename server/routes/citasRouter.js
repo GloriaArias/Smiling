@@ -31,7 +31,7 @@ router.get('/list', citasController.list);
 router.get('/login', citasController.login);
 
 // Nos manda a la vista del Loggin
-router.get('/confirm', citasController.confirm);
+router.get('/conf', citasController.conf);
 
 /* ------ POST ------ */
 // Procesa el formulario que Agrega ideas de proyectos
